@@ -8,7 +8,7 @@ import 'firebase/compat/auth';
 const SignOut=()=>{
     const auth=firebase.auth();
     return auth.currentUser && (
-        <button onClick={()=>auth.signOut()}>Log Out</button>
+        <button className="logOut-btn" onClick={()=>auth.signOut()}>Log Out</button>
     )
 }
 

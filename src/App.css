@@ -1,5 +1,6 @@
 body {
   background-color: #282c34;
+  font-family: 'Nunito', sans-serif;
 }
 
 .App {
@@ -58,40 +59,43 @@ form {
   height: 10vh;
   position: fixed;
   bottom: 0;
-  background-color: rgb(24, 23, 23);
+  background-color: rgba(24, 23, 23, 0);
   width: 100%;
   max-width: 728px;
   display: flex;
   font-size: 1.5rem;
 }
 
-form button {
-  width: 20%;
-  background-color: rgb(56, 56, 143);
-}
-
-
 input {
   line-height: 1.5;
-  width: 100%;
+  width: 85%;
   font-size: 1.5rem;
-  background: rgb(58, 58, 58);
+  background: #423567;
   color: white;
   outline: none;
   border: none;
   padding: 0 10px;
+  border-radius:30px;
+  margin : 0.3em;
 }
 
 button {
-  background-color: #282c34; /* Green */
+  background-color: #2b2834;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 5px 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
   font-size: 1.25rem;
+}
+
+form button {
+  max-width: 115px;
+  background-color: rgba(56, 56, 143, 0);
+  padding: 5px 5px;
+  font-size: 1.25em;
 }
 
 button:disabled {
@@ -107,30 +111,28 @@ button:disabled {
   margin: 0 auto;
 }
 
-
-
-
-ul, li {
+ul,
+li {
   text-align: left;
   list-style: none;
 }
 
 p {
-  max-width: 500px;
+  max-width: 150px;
   margin-bottom: 12px;
   line-height: 24px;
   padding: 10px 20px;
   border-radius: 25px;
   position: relative;
   color: white;
-  text-align: center;
+  text-align: left;
+  overflow-wrap: break-word;
 }
 
 .message {
   display: flex;
   align-items: center;
 }
-
 
 .sent {
   flex-direction: row-reverse;
@@ -141,14 +143,57 @@ p {
   background: #0b93f6;
   align-self: flex-end;
 }
-.received p {
-  background: #e5e5ea;
+
+.recieved p {
+  background: #e7e7ff;
   color: black;
 }
 
 img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 40%;
   margin: 2px 5px;
+  position: relative;
+  top: 1em;
+}
+
+.sender-info {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#txt-name {
+  font-size: 0.7em;
+  background-color: rgba(255, 255, 255, 0);
+  position: relative;
+  top: 2.5em;
+  z-index: 1;
+  color: white;
+}
+
+.logOut-btn {
+  background-color: #6649b8;
+  padding: 15px 32px;
+  border-radius: 5em;
+  transition: all 0.3s ease;
+}
+
+.logOut-btn:hover {
+  font-size: 1.2em;
+  font-weight: bold;
+  background: #1e1e24;
+  color: #6649b8;
+  box-shadow: 0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 2rem #6649b8,
+    0 0 0.8rem #6649b8,
+    0 0 .8rem #6649b8,
+    inset 0 0 .3rem #6649b8;
+}
+
+@media(max-width:768px){
+  form input{
+    width: 78%;
+  }
 }

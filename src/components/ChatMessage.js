@@ -10,12 +10,15 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 const ChatMessage = ({ message }) => {
     const firestore = firebase.firestore();
     const auth = firebase.auth();
-    const { text, uid, photoURL } = message;
+    const { text, uid, photoURL, displayName } = message;
     const messageClass = uid === auth.currentUser.uid ? 'sent' : 'recieved';
     return (
         <div className={`message ${messageClass}`}>
-            <img src={photoURL} alt="DP" />
-            <p>{text}</p>
+            <img clasName="pic" src={photoURL} alt="DP" />
+            <div>
+                <p id="txt-name">{displayName}</p>
+                <p>{text}</p>
+            </div>
         </div>
     )
 }
