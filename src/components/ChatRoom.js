@@ -39,7 +39,7 @@ const ChatRoom = () => {
                 }
                 <div ref={focus}></div>
             </main>
-            <form onSubmit={sendMessage}>
+            <form className="msgForm" onSubmit={sendMessage}>
                 <input value={formValue} onChange={(e) => setFormValue(e.target.value)} type="text" />
                 <button className="submit-btn" type="submit"><FontAwesomeIcon icon={faPaperPlane} /></button>
                 
