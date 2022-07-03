@@ -51,21 +51,21 @@ const SignIn = () => {
                 });
         }
     }
-    
-    const [avatar,setAvatar]=useState('');
-    const [name,setName]=useState('');
+
+    const [avatar, setAvatar] = useState('');
+    const [name, setName] = useState('');
 
     const verifyOTP = (e) => {
         let otp = e.target.value;
         setOTP(otp);
 
-        if (otp.length === 6 && name.length>0 && avatar!=='') {
+        if (otp.length === 6 && name.length > 0 && avatar !== '') {
             let confirmationResult = window.confirmationResult;
             confirmationResult.confirm(otp).then((result) => {
                 // User signed in successfully.
                 const user = result.user;
-                user.photoURL=avatar;
-                user.displayName=name;
+                user.photoURL = avatar;
+                user.displayName = name;
                 console.log(user);
                 // ...
             }).catch((error) => {
@@ -81,19 +81,28 @@ const SignIn = () => {
         auth.signInWithPopup(provider);
     }
 
-    
-    const avatarHandler=(e)=>{
-        console.log(e.target.src);
-        let avatarURL=e.target.src;
+
+    const avatarHandler = (e) => {
+        // console.log(e.target.src);
+        let avatarURL = e.target.src;
         setAvatar(avatarURL);
-        // console.log(avatar);
-        // console.log(auth);
+        const allWithClass = Array.from(
+            document.getElementsByClassName('avatars')
+        );
+        allWithClass[0].childNodes[e.target.id].classList.add('selected-avatar');
+        // console.log(Array.from(allWithClass[0].childNodes));
+        Array.from(allWithClass[0].childNodes).map((el)=>{
+            if(el.id!==e.target.id){
+                el.classList.remove('selected-avatar');
+                // console.log(el);
+            }
+        });
     }
 
     return (
         <div className="signInMethods">
             <form onSubmit={submitHandler}>
-                <h1>Sign in with phone number</h1>
+                <h1>Sign In</h1>
                 <div className="phoneField">
                     <label htmlFor="phoneNumberInput">Phone Number</label>
                     <input value={phoneNumber} onChange={(e) => { setPhoneNumber(e.target.value) }} type="tel" id="phoneNumberInput" placeholder="Enter phone number" />
@@ -102,13 +111,13 @@ const SignIn = () => {
                     <div className="otpField">
                         <label htmlFor="otpInput">OTP</label>
                         <input value={OTP} onChange={verifyOTP} type="number" id="otpInput" placeholder="Enter OTP" />
-                        <label htmlFor="nameField"></label>
-                        <input type="text" value={name} onChange={(e)=>setName(e.target.value)} id="nameField" placeholder="Enter Name"></input>
+                        <label htmlFor="nameInput">Name</label>
+                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} id="nameInput" placeholder="Enter Name"></input>
                         <div className="avatars">
-                            <img onClick={avatarHandler} src={Avatar1url} />
-                            <img onClick={avatarHandler} src={Avatar2url} />
-                            <img onClick={avatarHandler} src={Avatar3url} />
-                            <img onClick={avatarHandler} src={Avatar4url} />
+                            <img id="0" onClick={avatarHandler} src={Avatar1url} />
+                            <img id="1" onClick={avatarHandler} src={Avatar2url} />
+                            <img id="2" onClick={avatarHandler} src={Avatar3url} />
+                            <img id="3" onClick={avatarHandler} src={Avatar4url} />
                         </div>
                     </div>
                     : null}

@@ -115,7 +115,7 @@ button:disabled {
   color: #6649b8;
   margin: 0 auto;
   padding: 30px;
-  /* width:50%; */
+  width:80%;
   border-radius: 20px;
   box-shadow: 0 0 .2rem #fff,
     0 0 .2rem #fff,
@@ -132,6 +132,20 @@ button:disabled {
   margin: 10px;
 }
 
+.otpField {
+  flex-wrap: wrap;
+  width: 100%;
+  /* border: 1px solid red; */
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.otpField input {
+  width: 80%;
+  margin: 10px;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -139,7 +153,8 @@ input::-webkit-inner-spin-button {
 }
 
 #phoneNumberInput,
-#otpInput {
+#otpInput,
+#nameInput {
   background: #6649b8;
   color: #c1b5e2;
   border: none;
@@ -149,10 +164,16 @@ input::-webkit-inner-spin-button {
   transition: all 0.3s ease;
 }
 
+#otpInput {
+  margin-left: 20px;
+}
+
 #phoneNumberInput:focus,
 #otpInput:focus,
 #phoneNumberInput:hover,
-#otpInput:hover {
+#otpInput:hover,
+#nameInput:focus,
+#nameInput:hover {
   font-weight: bold;
   box-shadow: 0 0 .2rem #fff,
     0 0 .2rem #fff,
@@ -294,8 +315,29 @@ img {
     inset 0 0 .3rem rgb(68, 195, 245);
 }
 
-.avatars{
-  
+.avatars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: auto;
+  /* justify-content: space-between;
+  align-content: space-around; */
+}
+
+.avatars img{
+  margin: 10px;
+}
+
+.selected-avatar{
+  /* font-size: 1.5em; */
+  transition: all 0.3s ease;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 2rem #6649b8,
+    0 0 0.8rem #6649b8,
+    0 0 .8rem #6649b8,
+    inset 0 0 .3rem #6649b8;
 }
 
 @media(max-width:768px) {
@@ -303,7 +345,7 @@ img {
     width: 78%;
   }
 
-  #request-otp{
+  #request-otp {
     font-size: 1.1em;
     width: 40%;
     padding: 6px;
@@ -314,5 +356,11 @@ img {
   #request-otp:hover,
   #request-otp:focus {
     font-size: 1.1em;
+  }
+
+  #phoneNumberInput,
+  #otpInput,
+  #nameInput {
+    width:60% ;
   }
 }
