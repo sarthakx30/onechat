@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
+import logo from './images/logo.png';
 
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
+import "firebase/compat/messaging";
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
@@ -24,12 +26,25 @@ firebase.initializeApp({
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
+// const messaging = firebase.messaging();
+// messaging.getToken({ vapidKey: "BMAy4VMgvB-JSdZIhlY0EB5v9nBIzYLNNgIn5Cssp_WZVFQHcB-RUxoB9JoigOooSyplrF9fATylB3ZeF_zvFxw" });
 
 function App() {
   const [user] = useAuthState(auth);
+
+  // function requestPermission() {
+  //   console.log('Requesting permission...');
+  //   Notification.requestPermission().then(() => {
+  //     if (permission === 'granted') {
+  //       console.log('Notification permission granted.');
+  //     }
+  //   });
+  // }
+
   return (
     <div className="App">
       <header className="App-header">
+        <img src={logo} id="logo-img" />
         <SignOut />
       </header>
       <section>
@@ -38,5 +53,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

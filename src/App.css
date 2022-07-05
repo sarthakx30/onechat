@@ -24,7 +24,10 @@ body {
   z-index: 99;
   padding: 10px;
   box-sizing: border-box;
+  justify-content: space-between;
 }
+
+
 
 .App section {
   display: flex;
@@ -56,7 +59,7 @@ main::-webkit-scrollbar-thumb {
 }
 
 .msgForm {
-  height: 10vh;
+  height: 70px;
   position: fixed;
   bottom: 0;
   background-color: rgba(24, 23, 23, 0);
@@ -64,6 +67,7 @@ main::-webkit-scrollbar-thumb {
   max-width: 728px;
   display: flex;
   font-size: 1.5rem;
+  z-index: 99;
 }
 
 .msgForm input {
@@ -77,6 +81,7 @@ main::-webkit-scrollbar-thumb {
   padding: 0 10px;
   border-radius: 30px;
   margin: 0.3em;
+  z-index: 99;
 }
 
 button {
@@ -115,7 +120,7 @@ button:disabled {
   color: #6649b8;
   margin: 0 auto;
   padding: 30px;
-  width:80%;
+  width: 80%;
   border-radius: 20px;
   box-shadow: 0 0 .2rem #fff,
     0 0 .2rem #fff,
@@ -211,6 +216,7 @@ label {
 
 ::placeholder {
   color: #c1b5e2;
+  opacity: 80%;
 }
 
 ul,
@@ -257,7 +263,6 @@ img {
   border-radius: 40%;
   margin: 2px 5px;
   position: relative;
-  top: 1em;
 }
 
 .sender-info {
@@ -265,13 +270,21 @@ img {
   flex-direction: row-reverse;
 }
 
-#txt-name {
+#txt-name,#txt-time {
   font-size: 0.7em;
   background-color: rgba(255, 255, 255, 0);
   position: relative;
-  top: 2.5em;
+  /* top: 2.5em; */
   z-index: 1;
   color: white;
+}
+
+#txt-name{
+  top: 2.5em;
+}
+
+#txt-time{
+  bottom: 2em;
 }
 
 .logOut-btn {
@@ -279,6 +292,7 @@ img {
   padding: 15px 32px;
   border-radius: 5em;
   transition: all 0.3s ease;
+
 }
 
 .logOut-btn:hover {
@@ -319,15 +333,15 @@ img {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin: auto;
-  /* justify-content: space-between;
-  align-content: space-around; */
+  position:relative;
+  top: 1em;
 }
 
-.avatars img{
+.avatars img {
   margin: 10px;
 }
 
-.selected-avatar{
+.selected-avatar {
   /* font-size: 1.5em; */
   transition: all 0.3s ease;
   width: 60px;
@@ -340,8 +354,22 @@ img {
     inset 0 0 .3rem #6649b8;
 }
 
+#logo-img {
+  width: 100px;
+  height: 74px;
+  border: none;
+  border-radius: 20px;
+  position: relative;
+  top: 0;
+}
+
+.pic{
+  position: relative;
+  top: 5em;
+}
+
 @media(max-width:768px) {
-  form input {
+  .msgForm input {
     width: 78%;
   }
 
@@ -361,6 +389,6 @@ img {
   #phoneNumberInput,
   #otpInput,
   #nameInput {
-    width:60% ;
+    width: 60%;
   }
 }
